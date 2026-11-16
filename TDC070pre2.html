@@ -1897,7 +1897,11 @@ After a while, the pressure subsided, but your chest still felt tight. You may n
 [cont]
 The river is wide and fast-flowing.\
  It was difficult to cross the river and move forward.
-&gt;[[Turn back]]</tw-passagedata><tw-passagedata pid="56" name="Your Temporary Home" tags="" position="325,525" size="100,100">Map_x: 4
+&gt;[[Turn back]]
+
+[if MsnOwenComp&gt;=8&amp;&amp;!BridgeSurveyComplete]
+You remembered the decision made at the town meeting. If the settlement was ever going to reach the other side, someone had to find a place where a bridge could stand.
+&gt;[[Survey the riverbank-&gt;Bridge Site Survey]]</tw-passagedata><tw-passagedata pid="56" name="Your Temporary Home" tags="" position="325,525" size="100,100">Map_x: 4
 Map_y: 4
 Map_z: 0
 --
@@ -8841,4 +8845,29 @@ A worker turned in your direction. You stepped away at once, pretending to inspe
 You had learned that the woman was part of a reconnaissance party sent by the royal order. The people running this facility were capturing not only wandering adventurers, but organised investigators as well.
 
 &gt;[[Return to the room entrance-&gt;Second Door]]</tw-passagedata>
-</tw-storydata></html>
+<tw-passagedata pid="315" name="Bridge Site Survey" tags="" position="1025,1025" size="100,100">BridgeSurveyStarted: true
+--
+You followed the White River along its near bank, looking for a place narrow enough to make a crossing possible. The current never slowed. Even where the water looked calm, anything dropped into it was dragged away almost immediately.
+
+After a long search, you found a promising stretch. The river narrowed between two shelves of exposed rock. The near bank was firm, and the opposite side seemed solid enough to support a structure. It was not a crossing yet, but it was the first place you had seen that might actually hold a bridge.
+
+You marked the location on your map and headed back to the settlement. Aidan and Brian would need to judge the foundations, while Liam could estimate the span and the materials required.
+
+&gt;[[Take the survey to Owen-&gt;Bridge Survey Report]]</tw-passagedata>
+<tw-passagedata pid="316" name="Bridge Survey Report" tags="" position="1175,1025" size="100,100">BridgeSurveyComplete: true
+BridgePlanStage: 1
+--
+Owen listened as you described the narrow stretch of the White River and studied the location you had marked.
+
+“That's the first useful lead we've had,” he said. “Liam, could you check the distance and compare it with the other survey records?”
+
+Liam leaned over the map. “The span is shorter than most of the river, but still too wide for a simple wooden footbridge. We will need a proper frame and supports.”
+
+Aidan nodded. “Brian and I can examine the rock shelves. If the foundations are sound, we can design the supports. But we will need a great deal of timber, stone, and strong fastenings.”
+
+Owen looked back at you. “Then we have our first step. The site has been found; now we need to make sure it can carry a bridge. I'll ask Aidan and Brian to prepare an assessment. In the meantime, keep an eye out for useful building materials while exploring.”
+
+The meeting ended with a practical plan at last. The White River was still impassable, but the settlement now had a place to begin.
+
+[cont]
+&gt;[[Return to field]]</tw-passagedata></tw-storydata></html>
