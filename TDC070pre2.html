@@ -5371,6 +5371,9 @@ Map_z: 0
 --
 &gt;[[Mayor&#39;s Room]]
 
+[if BridgeSurveyComplete&amp;&amp;!BridgeBuilt]
+&gt;[[Discuss the bridge project-&gt;Bridge Project]]
+
 [if MsnOwenProg===6&amp;&amp;MsnOwenComp===5&amp;&amp;!StatueOfTransformation]
 You noticed the door next to the mayor&#39;s room. As you approached it, muffled voices leaked out from inside.
 
@@ -8883,6 +8886,7 @@ Owen looked back at you. “Then we have our first step. The site has been found
 The meeting ended with a practical plan at last. The White River was still impassable, but the settlement now had a place to begin.
 
 [cont]
+&gt;[[Discuss the next steps-&gt;Bridge Project]]
 &gt;[[Return to field]]</tw-passagedata><tw-passagedata pid="317" name="Bridge Crossing" tags="" position="1025,1275" size="100,100">Map_x: FarBankX
 Map_y: FarBankY
 Map_z: 0
@@ -8909,4 +8913,96 @@ You have found the hideout mentioned in the rumours.
 
 &gt;[[Slip inside the facility-&gt;Hallway]]
 &gt;[[Back away from the entrance-&gt;Hideout Approach]]</tw-passagedata>
+<tw-passagedata pid="320" name="Bridge Project" tags="" position="1500,1300" size="100,100">--
+[if BridgeBuilt]
+The bridge project has been completed. The route across the White River is open.
+&gt;[[Return to field]]
+
+[if !BridgeBuilt&amp;&amp;BridgePlanStage===1]
+Owen has organised the work into three stages. First, the workers need stone and iron to secure the foundations on both banks.
+
+**Foundation materials required**
+- Stone: 6 (you have {LggStone})
+- Scrap iron: 2 (you have {LggIron})
+
+[if LggStone&gt;=6&amp;&amp;LggIron&gt;=2]
+&gt;[[Deliver the foundation materials-&gt;Deliver Bridge Foundations]]
+
+[if LggStone&lt;6||LggIron&lt;2]
+You do not have enough materials yet. You can gather wood, stone, and scrap iron while exploring.
+&gt;[[Return to field]]
+
+[if !BridgeBuilt&amp;&amp;BridgePlanStage===2]
+The foundations are secure. Aidan has prepared the metal joints, and the workers are ready to assemble the main frame.
+
+**Frame materials required**
+- Wood: 8 (you have {LggWood})
+- Scrap iron: 4 (you have {LggIron})
+
+[if LggWood&gt;=8&amp;&amp;LggIron&gt;=4]
+&gt;[[Deliver the frame materials-&gt;Deliver Bridge Frame]]
+
+[if LggWood&lt;8||LggIron&lt;4]
+You still need more timber and scrap iron.
+&gt;[[Return to field]]
+
+[if !BridgeBuilt&amp;&amp;BridgePlanStage===3]
+The main frame is in place. Only the final supports and walkway remain.
+
+**Finishing materials required**
+- Stone: 4 (you have {LggStone})
+- Wood: 4 (you have {LggWood})
+- Scrap iron: 4 (you have {LggIron})
+
+[if LggStone&gt;=4&amp;&amp;LggWood&gt;=4&amp;&amp;LggIron&gt;=4]
+&gt;[[Deliver the finishing materials-&gt;Complete Bridge Construction]]
+
+[if LggStone&lt;4||LggWood&lt;4||LggIron&lt;4]
+The workers cannot finish the bridge until the remaining materials arrive.
+&gt;[[Return to field]]</tw-passagedata>
+<tw-passagedata pid="321" name="Deliver Bridge Foundations" tags="" position="1625,1300" size="100,100">LggStone: LggStone - 6
+LggIron: LggIron - 2
+LggPos: LggPos - 8
+LggVac: LggCap - LggPos
+BridgePlanStage: 2
+--
+You delivered the stone and scrap iron to Aidan and Brian. They checked each piece before carrying the supplies to the river.
+
+By the end of the day, the first foundation blocks had been set into the rock shelves. The supports would need time to settle, but the most difficult part of anchoring the bridge had begun.
+
+&gt;[[Return to the bridge project-&gt;Bridge Project]]</tw-passagedata>
+<tw-passagedata pid="322" name="Deliver Bridge Frame" tags="" position="1750,1300" size="100,100">LggWood: LggWood - 8
+LggIron: LggIron - 4
+LggPos: LggPos - 12
+LggVac: LggCap - LggPos
+BridgePlanStage: 3
+--
+You brought the timber and iron fastenings to the construction site. Aidan inspected the metal joints while Liam checked the measurements one last time.
+
+The workers raised the first sections of the frame between the stone supports. By sunset, the outline of a bridge stood above the rushing water.
+
+Only the final supports and walkway remained.
+
+&gt;[[Return to the bridge project-&gt;Bridge Project]]</tw-passagedata>
+<tw-passagedata pid="323" name="Complete Bridge Construction" tags="" position="1875,1300" size="100,100">LggStone: LggStone - 4
+LggWood: LggWood - 4
+LggIron: LggIron - 4
+LggPos: LggPos - 12
+LggVac: LggCap - LggPos
+BridgePlanStage: 4
+BridgeBuilt: true
+LctHideout: true
+--
+The last stone supports were locked into place, and the final planks were secured with iron fastenings.
+
+Aidan tested the joints while Brian inspected the foundations. Liam crossed carefully, then turned and raised a hand to the workers on the near bank.
+
+“It holds,” he called.
+
+Owen watched the bridge for a long moment before allowing himself a smile. The settlement finally had a safe route across the White River. The far bank, once unreachable, was now within reach.
+
+The workers cheered as the first proper crossing was opened.
+
+&gt;[[Go to the White River-&gt;White River]]
+&gt;[[Return to the bridge project-&gt;Bridge Project]]</tw-passagedata>
 </tw-storydata></html>
