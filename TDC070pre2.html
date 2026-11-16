@@ -8799,14 +8799,30 @@ You need to retrieve your equipment.
 DEBUGMODE [[Your Temporary Home]]</tw-passagedata><tw-passagedata pid="306" name="First Door" tags="" position="2100,3550" size="100,100">Pipes crisscrossed the room, large tanks stood in rows, and in the center, a huge pot bubbled with pink liquid. Above it stood a distillation apparatus. People in white coats moved about the room, working.
 &gt;[[Hallway]]
 [if HideoutSecret===1]
-&gt;[[Approaching one of the figures in white coats]]</tw-passagedata><tw-passagedata pid="307" name="Second Door" tags="" position="2225,3550" size="100,100">The room contained a shocking sight. Naked humans were strapped to wooden horse-like contraptions, lined up in a row. Tubes were inserted into their mouths and anuses, secured with bands. Suction devices were attached to their breasts and members. People in white clothing moved around the room, checking on the victims and the equipment.
+&gt;[[Approaching one of the figures in white coats]]
+[if HideoutSecret>=2&&!HideoutRecordsFound]
+&gt;[[Examine the laboratory records-&gt;Laboratory Records]]
+[if HideoutRecordsFound]
+The notes you copied are still tucked beneath your coat.</tw-passagedata><tw-passagedata pid="307" name="Second Door" tags="" position="2225,3550" size="100,100">The room contained a shocking sight. Naked humans were strapped to wooden horse-like contraptions, lined up in a row. Tubes were inserted into their mouths and anuses, secured with bands. Suction devices were attached to their breasts and members. People in white clothing moved around the room, checking on the victims and the equipment.
 &gt;[[Proceed deeper into the room]]
 &gt;[[Hallway]]
 [if HideoutSecret&gt;=2&amp;&amp;!BlueKnightContacted]
-&gt;[[Approach the blue-haired woman-&gt;Blue-haired Knight]]</tw-passagedata><tw-passagedata pid="308" name="Third Door" tags="" position="2350,3550" size="100,100">Numerous wooden crates were scattered throughout the room. Some were stacked, while others had their lids open, revealing their contents. The contents of the crates were jumbled, with swords and armor mixed together.
+&gt;[[Approach the blue-haired woman-&gt;Blue-haired Knight]]
+[if BlueKnightContacted&&HideoutRouteFound&&!BlueKnightRescued]
+&gt;[[Free the prisoners-&gt;Prisoner Rescue]]
+[if BlueKnightRescued]
+The blue-haired knight and the other rescued prisoners are no longer here.</tw-passagedata><tw-passagedata pid="308" name="Third Door" tags="" position="2350,3550" size="100,100">Numerous wooden crates were scattered throughout the room. Some were stacked, while others had their lids open, revealing their contents. The contents of the crates were jumbled, with swords and armor mixed together.
 &gt;[[Hallway]]
 [if HideoutSecret===0]
-&gt;[[Search for your equipment]]</tw-passagedata><tw-passagedata pid="309" name="Door at the End of the Hallway" tags="" position="2475,3550" size="100,100">You tried pushing the door, but it wouldn&#39;t open.
+&gt;[[Search for your equipment]]
+[if HideoutSecret>=2&&!HideoutKeyFound]
+&gt;[[Search the locked supply crates-&gt;Supply Crate Search]]
+[if HideoutKeyFound]
+You already found the ring of keys hidden among the supplies.</tw-passagedata><tw-passagedata pid="309" name="Door at the End of the Hallway" tags="" position="2475,3550" size="100,100"> [if HideoutKeyFound]
+The lock is familiar now. The key ring you found should contain the right one.
+&gt;[[Unlock the records office-&gt;Records Office]]
+[if !HideoutKeyFound]
+You tried pushing the door, but it wouldn&#39;t open. The lock is sturdy, and forcing it would alert the whole facility.
 &gt;[[Hallway]]</tw-passagedata><tw-passagedata pid="310" name="Proceed deeper into the room" tags="" position="2225,3675" size="100,100">You walked deeper along the row of wooden horses. The people connected to the devices were a mix of men and women, but they seemed relatively young. You weren&#39;t sure if these people were from the same place as the people of the Blue Town, but you somehow felt they weren&#39;t. Many had lean, well-toned physiques, and you wondered if they were mostly adventurers.\
 You suddenly found yourself drawn to a person connected to a nearby wooden horse. The figure was a woman with striking long blue hair. Her face was obscured by the apparatus, making it difficult to see clearly. Yet you recalled a colleague from the royal capital&#39;s knightly order to which you belonged.\
 “Hey, guard, what are you doing here?” You were called out by the man in white.\
@@ -9005,4 +9021,99 @@ The workers cheered as the first proper crossing was opened.
 
 &gt;[[Go to the White River-&gt;White River]]
 &gt;[[Return to the bridge project-&gt;Bridge Project]]</tw-passagedata>
+
+<tw-passagedata pid="324" name="Laboratory Records" tags="" position="2600,3550" size="100,100">HideoutRecordsFound: true
+--
+You wait until the workers turn their backs before slipping behind the distillation apparatus. A leather-bound ledger lies beneath a stack of stained notes.
+
+The pages describe the pink liquid as a refined form of **vital essence**. The captives are not merely being held for ransom: the facility is extracting a rare magical response from them and concentrating it through the tanks. The notes repeatedly mention heightened emotion, physical exhaustion, and a substance that makes the resulting brew unusually potent.
+
+A second page lists the effects of the finished product. In small doses it lowers resistance to suggestion and intensifies existing impulses. The author calls it a “compliance aid”. You feel a chill as you realise the liquid is being prepared for distribution, not simply stored here.
+
+A diagram shows that the finished batches are taken through a records office at the end of this corridor. You cannot carry the entire ledger without attracting attention, but you copy the most important details.
+
+Someone approaches. You close the book and return to the hallway.
+
+&gt;[[Return to the hallway-&gt;Hallway]]</tw-passagedata>
+<tw-passagedata pid="325" name="Supply Crate Search" tags="" position="2725,3550" size="100,100">HideoutKeyFound: true
+--
+You search the crates carefully, keeping the lids from scraping against the floor. Beneath a bundle of spare straps and folded uniforms, your fingers find a small iron ring.
+
+Several keys hang from it, each marked with a number. One is stamped with the same symbol you noticed on the locked door at the end of the corridor.
+
+You slip the ring into your coat. It may be the chance you need to get beyond this hallway.
+
+&gt;[[Return to the hallway-&gt;Hallway]]</tw-passagedata>
+<tw-passagedata pid="326" name="Records Office" tags="" position="2850,3550" size="100,100">HideoutRouteFound: true
+--
+The key turns with a quiet click. You ease the door open and step into a cramped office lined with shelves, maps, and sealed dispatch cases.
+
+A route map is pinned above the desk. Red marks connect the hideout to a lower passage beneath the dungeon. Beside it lies a transport schedule. Prisoners are moved in small groups whenever a tank reaches capacity; the next transfer is due before dawn.
+
+You find a second document bearing the same seal as the notes in the laboratory. It refers to **Depth 13** as the source of an unusual catalyst. The facility's staff are warned not to enter the lower chamber without permission from the figure known only as the Warden.
+
+A list of recent captures includes the royal order's reconnaissance party. Several names are crossed out. The blue-haired knight's name is still marked as “awaiting transfer”.
+
+You now have enough evidence to understand the operation, but the prisoners will be moved soon. You must act before the next transport leaves.
+
+&gt;[[Return to the hallway-&gt;Hallway]]
+[if BlueKnightContacted&&!BlueKnightRescued]
+&gt;[[Go to the prisoner room-&gt;Second Door]]</tw-passagedata>
+<tw-passagedata pid="327" name="Prisoner Rescue" tags="" position="2975,3550" size="100,100">HideoutRescueStarted: true
+--
+You return to the room and wait for the workers to move away from the row of restraints. The blue-haired knight notices the key ring beneath your coat and gives a small, determined nod.
+
+“You found the records?” she whispers.
+
+“Enough to prove what they are doing. The next transport leaves before dawn.”
+
+“Then we do not have much time. Free the others. I can walk.”
+
+You unlock her restraints first. She catches her balance, then takes a discarded cloak from a nearby hook and wraps it around her shoulders. Her expression hardens as she looks along the room.
+
+“Some of them are still conscious. We cannot leave them here.”
+
+Together, you release the nearest prisoners. The knight supports one of them while you help another stand. A worker appears at the far doorway, but she steps between you and him, knocking a metal tray from his hands. The crash echoes through the room.
+
+“Go!” she hisses. “I'll hold the corridor.”
+
+You lead the prisoners toward the service passage. Before following, she glances back at you with a faint, tired smile.
+
+“Once we're out, you and I are going to have a long conversation. Preferably somewhere without guards, restraints, or people listening.”
+
+The alarm begins to ring. There is no time to search for your equipment now.
+
+&gt;[[Escape through the service passage-&gt;Prisoner Escape]]</tw-passagedata>
+<tw-passagedata pid="328" name="Prisoner Escape" tags="" position="3100,3550" size="100,100">BlueKnightRescued: true
+HideoutRescueComplete: true
+--
+The service passage slopes downward before opening into a narrow ravine beyond the outer wall. Cold night air rushes over your face.
+
+The rescued prisoners are frightened and exhausted, but they are alive. The blue-haired knight counts them twice before allowing herself to relax.
+
+“We should split up. I'll take them toward the old watchtower. The royal order may still have people searching for us,” she says.
+
+You tell her about the documents and the reference to Depth 13.
+
+Her expression changes. “The Warden. I heard that title before I was captured. If that person is connected to the dungeon, then this is larger than a single hideout.”
+
+She places a small insignia in your hand. “Keep this. If you find another member of the order, show it to them. And when we meet again, I expect that conversation.”
+
+For a moment, her usual discipline gives way to a warmer look. Then she turns and leads the survivors into the trees.
+
+You have rescued the prisoners and uncovered the hideout's transport route. The records you copied may be the key to discovering what lies beneath Depth 13.
+
+&gt;[[Return to the far bank-&gt;Return to field]]
+&gt;[[Review what you discovered-&gt;Hideout Evidence]]</tw-passagedata>
+<tw-passagedata pid="329" name="Hideout Evidence" tags="" position="3225,3550" size="100,100">The evidence you gathered points to three connected parts of the operation:
+
+- The laboratory extracts a rare vital essence from captives and refines it into the pink liquid.
+- The finished liquid is intended to influence behaviour and intensify existing impulses.
+- A catalyst associated with Depth 13 is needed to complete the process.
+
+The transport records show that prisoners and supplies move between the hideout and the lower dungeon. The Warden appears to control access to the deepest chamber.
+
+You have disrupted one transfer and rescued several captives, but the people behind the operation have not been exposed. The next step will be to learn who the Warden is and why Depth 13 matters.
+
+&gt;[[Return to the far bank-&gt;Return to field]]</tw-passagedata>
 </tw-storydata></html>
