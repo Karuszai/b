@@ -8800,7 +8800,7 @@ DEBUGMODE [[Your Temporary Home]]</tw-passagedata><tw-passagedata pid="306" name
 &gt;[[Hallway]]
 [if HideoutSecret===1]
 &gt;[[Approaching one of the figures in white coats]]
-[if HideoutSecret>=2&&!HideoutRecordsFound]
+[if HideoutSecret&gt;=2&amp;&amp;!HideoutRecordsFound]
 &gt;[[Examine the laboratory records-&gt;Laboratory Records]]
 [if HideoutRecordsFound]
 The notes you copied are still tucked beneath your coat.</tw-passagedata><tw-passagedata pid="307" name="Second Door" tags="" position="2225,3550" size="100,100">The room contained a shocking sight. Naked humans were strapped to wooden horse-like contraptions, lined up in a row. Tubes were inserted into their mouths and anuses, secured with bands. Suction devices were attached to their breasts and members. People in white clothing moved around the room, checking on the victims and the equipment.
@@ -8808,7 +8808,7 @@ The notes you copied are still tucked beneath your coat.</tw-passagedata><tw-pas
 &gt;[[Hallway]]
 [if HideoutSecret&gt;=2&amp;&amp;!BlueKnightContacted]
 &gt;[[Approach the blue-haired woman-&gt;Blue-haired Knight]]
-[if BlueKnightContacted&&HideoutRouteFound&&!BlueKnightRescued]
+[if BlueKnightContacted&amp;&amp;HideoutRouteFound&amp;&amp;!BlueKnightRescued]
 &gt;[[Free the prisoners-&gt;Prisoner Rescue]]
 [if BlueKnightRescued]
 The blue-haired knight and the other rescued prisoners are no longer here.</tw-passagedata><tw-passagedata pid="308" name="Third Door" tags="" position="2350,3550" size="100,100">Numerous wooden crates were scattered throughout the room. Some were stacked, while others had their lids open, revealing their contents. The contents of the crates were jumbled, with swords and armor mixed together.
@@ -8818,7 +8818,7 @@ The blue-haired knight and the other rescued prisoners are no longer here.</tw-p
 [if HideoutSecret>=2&&!HideoutKeyFound]
 &gt;[[Search the locked supply crates-&gt;Supply Crate Search]]
 [if HideoutKeyFound]
-You already found the ring of keys hidden among the supplies.</tw-passagedata><tw-passagedata pid="309" name="Door at the End of the Hallway" tags="" position="2475,3550" size="100,100"> [if HideoutKeyFound]
+You already found the ring of keys hidden among the supplies.</tw-passagedata><tw-passagedata pid="309" name="Door at the End of the Hallway" tags="" position="2475,3550" size="100,100">[if HideoutKeyFound]
 The lock is familiar now. The key ring you found should contain the right one.
 &gt;[[Unlock the records office-&gt;Records Office]]
 [if !HideoutKeyFound]
