@@ -8781,7 +8781,9 @@ DEBUGMODE [[Your Temporary Home]]</tw-passagedata><tw-passagedata pid="306" name
 [if HideoutSecret===1]
 &gt;[[Approaching one of the figures in white coats]]</tw-passagedata><tw-passagedata pid="307" name="Second Door" tags="" position="2225,3550" size="100,100">The room contained a shocking sight. Naked humans were strapped to wooden horse-like contraptions, lined up in a row. Tubes were inserted into their mouths and anuses, secured with bands. Suction devices were attached to their breasts and members. People in white clothing moved around the room, checking on the victims and the equipment.
 &gt;[[Proceed deeper into the room]]
-&gt;[[Hallway]]</tw-passagedata><tw-passagedata pid="308" name="Third Door" tags="" position="2350,3550" size="100,100">Numerous wooden crates were scattered throughout the room. Some were stacked, while others had their lids open, revealing their contents. The contents of the crates were jumbled, with swords and armor mixed together.
+&gt;[[Hallway]]
+[if HideoutSecret&gt;=2&amp;&amp;!BlueKnightContacted]
+&gt;[[Approach the blue-haired woman-&gt;Blue-haired Knight]]</tw-passagedata><tw-passagedata pid="308" name="Third Door" tags="" position="2350,3550" size="100,100">Numerous wooden crates were scattered throughout the room. Some were stacked, while others had their lids open, revealing their contents. The contents of the crates were jumbled, with swords and armor mixed together.
 &gt;[[Hallway]]
 [if HideoutSecret===0]
 &gt;[[Search for your equipment]]</tw-passagedata><tw-passagedata pid="309" name="Door at the End of the Hallway" tags="" position="2475,3550" size="100,100">You tried pushing the door, but it wouldn&#39;t open.
@@ -8816,4 +8818,27 @@ You didn&#39;t answer. Instead, you lunged at him and pinned him from behind. He
 &gt;[[Hallway]]
 
 [cont]
-[[Current Ending of the Main Storyline]]</tw-passagedata></tw-storydata></html>
+[[Current Ending of the Main Storyline]]</tw-passagedata><tw-passagedata pid="314" name="Blue-haired Knight" tags="" position="0,0" size="100,100">BlueKnightContacted: true
+--
+You waited until the white-coated workers had moved to the far side of the room. Then you stepped closer to the woman with long blue hair.
+
+Her eyes opened. For a moment, she stared at you without recognition. Then her expression changed.
+
+“...That uniform. No, it can't be. Are you really from the royal order?” she whispered.
+
+You kept your voice low. “I thought I recognised you. I couldn't see your face before. What happened to you?”
+
+“I was leading a small reconnaissance party near the dungeon entrance. We found signs that people were being taken away, so we followed the trail. Someone ambushed us. I woke up here.”
+
+She glanced toward the workers. “They move prisoners when the tanks are full. I heard them mention a transport route outside this room. I don't know where it leads, but it may be our only chance to expose this place.”
+
+“Can you get free?” you asked.
+
+“Not without help. And if they discover you talking to me, your disguise won't protect you for long. Don't try anything yet. Find out where they keep the keys and records. If you return, use the phrase ‘the eastern watch is clear’. I'll know it's you.”
+
+A worker turned in your direction. You stepped away at once, pretending to inspect one of the nearby devices.
+
+You had learned that the woman was part of a reconnaissance party sent by the royal order. The people running this facility were capturing not only wandering adventurers, but organised investigators as well.
+
+&gt;[[Return to the room entrance-&gt;Second Door]]</tw-passagedata>
+</tw-storydata></html>
