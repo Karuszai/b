@@ -394,7 +394,7 @@ _TransActv: _Trans1||_Trans2||_Trans3||_Trans4
 [[You felt something unusual happening to you.-&gt;McTrans]]
 
 [if !_TransActv]
-{embed passage: &#39;Map content&#39;}</tw-passagedata><tw-passagedata pid="7" name="Map content" tags="" position="1425,875" size="100,100">[if McCanMove&amp;&amp;Map_x*Map_x&lt;=25&amp;&amp;Map_y*Map_y&lt;=25&amp;&amp;Map_z===0]
+{embed passage: &#39;Map content&#39;}</tw-passagedata><tw-passagedata pid="7" name="Map content" tags="" position="1425,875" size="100,100">[if McCanMove&amp;&amp;Map_z===0&amp;&amp;((Map_x*Map_x&lt;=25&amp;&amp;Map_y*Map_y&lt;=25)||(BridgeBuilt&amp;&amp;(Map_x-FarBankX)**2&lt;=25&amp;&amp;(Map_y-FarBankY)**2&lt;=25))]
 {embed passage: &#39;mMap&#39;}
 
 [if _MpEnc===&quot;none&quot;&amp;&amp;!_MpSafeArea]
@@ -419,6 +419,9 @@ You found a pile of rubble.
 [if _MpEnc===&quot;WhiteRiver&quot;]
 You found a river of white liquid flowing in front of you.
 &gt;[[White River]]
+
+[if BridgeBuilt&amp;&amp;Map_x===HideoutX&amp;&amp;Map_y===HideoutY&amp;&amp;Map_z===0]
+&gt;[[A concealed facility entrance-&gt;Hideout Approach]]
 
 
 
@@ -1898,6 +1901,10 @@ After a while, the pressure subsided, but your chest still felt tight. You may n
 The river is wide and fast-flowing.\
  It was difficult to cross the river and move forward.
 &gt;[[Turn back]]
+
+[if BridgeBuilt]
+The bridge now spans the current. Its far end leads toward unexplored ground.
+&gt;[[Cross the completed bridge-&gt;Bridge Crossing]]
 
 [if MsnOwenComp&gt;=8&amp;&amp;!BridgeSurveyComplete]
 You remembered the decision made at the town meeting. If the settlement was ever going to reach the other side, someone had to find a place where a bridge could stand.
@@ -6353,6 +6360,12 @@ _TrsrpE: 0
 LctTavern: false
 LctShrine: false
 LctWhiteRiver: false
+BridgeBuilt: false
+LctHideout: false
+FarBankX: -6
+FarBankY: 16
+HideoutX: -4
+HideoutY: 18
 LctAlchemyShop: false
 LctBlacksmith: false
 LctMysteriousLittleHut: false
@@ -8870,4 +8883,30 @@ Owen looked back at you. “Then we have our first step. The site has been found
 The meeting ended with a practical plan at last. The White River was still impassable, but the settlement now had a place to begin.
 
 [cont]
-&gt;[[Return to field]]</tw-passagedata></tw-storydata></html>
+&gt;[[Return to field]]</tw-passagedata><tw-passagedata pid="317" name="Bridge Crossing" tags="" position="1025,1275" size="100,100">Map_x: FarBankX
+Map_y: FarBankY
+Map_z: 0
+Map_prv_x: Map_x
+Map_prv_y: Map_y
+_WhiteRiverLctn: false
+_MpEnc: "none"
+McCanMove: true
+--
+The wooden structure creaked beneath your feet as you crossed the White River. The current rushed below, but the supports held firm. On the far bank, the wilderness stretched into unfamiliar territory.
+
+You had reached the other side of the river for the first time.
+
+&gt;[[Explore the far bank-&gt;Return to field]]</tw-passagedata>
+<tw-passagedata pid="318" name="Hideout Approach" tags="" position="1250,1275" size="100,100">LctHideout: true
+--
+A narrow trail leads away from the river and into a rocky hollow. Beyond the trees stands a fortified facility, partly concealed by the surrounding cliffs. There are no signs or banners, but the steady movement of guards makes it clear that this place is being used.
+
+You have found the hideout mentioned in the rumours.
+
+&gt;[[Examine the outer wall-&gt;Hideout Entrance]]
+&gt;[[Return to the far bank-&gt;Return to field]]</tw-passagedata>
+<tw-passagedata pid="319" name="Hideout Entrance" tags="" position="1375,1275" size="100,100">You follow the outer wall until you find a narrow service entrance. It is watched, but the workers appear to use it more often than the main gate. You will need to choose your moment carefully.
+
+&gt;[[Slip inside the facility-&gt;Hallway]]
+&gt;[[Back away from the entrance-&gt;Hideout Approach]]</tw-passagedata>
+</tw-storydata></html>
