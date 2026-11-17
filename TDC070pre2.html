@@ -2688,6 +2688,8 @@ Rhona
 &gt;[[Help out at the tavern-&gt;WaitressMemoryTask]]
 [if McWaitress&amp;&amp;RhonaWorkShift&gt;=6&amp;&amp;RhonaTalkProgress&gt;=3&amp;&amp;!RhonaAfterHours]
 &gt;[[Stay with Rhona after closing-&gt;Rhona After Hours]]
+[if McWaitress&amp;&amp;RhonaWorkShift&gt;=8&amp;&amp;RhonaAfterHours&amp;&amp;!RhonaAfterHours2]
+&gt;[[Spend another quiet evening with Rhona-&gt;Rhona After Hours 2]]
 
 [cont]
 ***
@@ -6439,6 +6441,7 @@ LctRhonaHouse: false
 RhonaWorkShift: 0
 RhonaTalkProgress: 0
 RhonaAfterHours: false
+RhonaAfterHours2: false
 LctMayorsOffice: false
 LctLodging: false
 YthomeX:4
@@ -9224,5 +9227,45 @@ For a while, neither of you felt the need to speak. The quiet no longer seemed a
 “Thank you for staying,” Rhona said at last. “I think I'd like to do this again sometime.”
 
 You said your goodbyes and left her to lock up the tavern.
+
+&gt;[[Back-&gt;Rhona]]</tw-passagedata><tw-passagedata pid="332" name="Rhona After Hours 2" tags="" position="0,0" size="100,100">RhonaAfterHours2: true
+--
+{embed image: &#39;images/Rhona0.webp&#39;, alt: &#39;Rhona after closing&#39;}
+
+A few more evenings had passed since you last stayed with Rhona after closing. This time, she had set two cups on the counter before you even arrived.
+
+“I was hoping you would come by,” she admitted. “I think I've grown used to having someone to share the quiet with.”
+
+You helped her finish the last of the day's work. When the tavern was ready for the morning, Rhona did not immediately reach for the keys.
+
+“I used to worry that relying on someone would make me seem incapable,” she said. “But you've never made me feel that way. You help because you want to, and you never make me feel that I owe you more than a thank-you.”
+
+You told her that spending time with her had become something you looked forward to as well.
+
+[if McCorStage&lt;=1]
+Rhona smiled at your familiar appearance. “So much has happened since you first came here as a knight. I'm glad you still make time for the people you met along the way.”
+[if McCorStage===2]
+She studied your changed silhouette for a moment, then met your eyes. “Your body may be changing, but I hope you know you don't have to face all of that alone.”
+[if McCorStage&gt;=3]
+Her expression softened. “I can see how much the dungeon has changed you. I won't pretend to understand what that feels like, but you can talk to me whenever you want.”
+
+[if McBreasts&gt;=2]
+Rhona gave a small, thoughtful smile. “I imagine getting used to all these changes takes time. You can be honest with me about them.”
+[if McRod]
+You admitted that some parts of your transformation were still difficult to get used to.
+[if !McRod]
+You admitted that your transformation had changed more than you ever expected.
+Rhona listened without interrupting. “You don't have to explain everything tonight. I just want you to feel comfortable here.”
+
+[if McBhvDom&gt;McBhvSub]
+You offered her your hand. This time, Rhona accepted it without surprise.
+“I'm glad you came,” she said. You leaned closer, and she returned your gentle kiss with a quiet smile.
+[if McBhvSub&gt;=McBhvDom]
+Rhona reached for your hand and drew you closer.
+“Let me look after you for a change,” she whispered. You relaxed in her embrace and returned her gentle kiss.
+
+The two of you stayed together until the lamps had nearly burned out. There was no need to make promises or decide what the future would bring. It was enough to know that you both wanted to meet again.
+
+Rhona walked you to the door. “Come back when you can. Not because I need an extra pair of hands,” she said, smiling, “but because I'd like to see you.”
 
 &gt;[[Back-&gt;Rhona]]</tw-passagedata></tw-storydata></html>
