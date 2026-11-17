@@ -5483,7 +5483,8 @@ Task5: {dropdown menu for: &#39;_WTaskYouDo5&#39;, choices: [&quot;Carry fruit l
 Task6: {dropdown menu for: &#39;_WTaskYouDo6&#39;, choices: [&quot;Carry fruit liquor&quot;,&quot;Carry grain liquor&quot;,&quot;Carry meat dish&quot;,&quot;Carry fish dish&quot;,&quot;Carry bread&quot;,&quot;Wipe the table&quot;]}
 
 [cont]
-&gt;[[Result-&gt;WaitressMemoryResult]]</tw-passagedata><tw-passagedata pid="177" name="WaitressMemoryResult" tags="" position="1200,2575" size="100,100">_WTaskResult1: _WTask1===_WTaskYouDo1
+&gt;[[Result-&gt;WaitressMemoryResult]]</tw-passagedata><tw-passagedata pid="177" name="WaitressMemoryResult" tags="" position="1200,2575" size="100,100">RhonaWorkShift: RhonaWorkShift + 1
+_WTaskResult1: _WTask1===_WTaskYouDo1
 _WTaskResult2: _WTask2===_WTaskYouDo2
 _WTaskResult3: _WTask3===_WTaskYouDo3
 _WTaskResult4: _WTask4===_WTaskYouDo4
@@ -5542,7 +5543,28 @@ your Task points: {_WTaskPoint}
 
 [cont]
 You earned {_GetGems} gems. You have {McGems} gems now.
-&gt;[[Change clothes in the back and go outside-&gt;Return to field]]</tw-passagedata><tw-passagedata pid="178" name="Ask Aidan for a discount" tags="" position="2250,1975" size="100,100">McRearExps: McRearExps + 1
+[if RhonaWorkShift===0]
+&gt;[[Talk with Rhona after the shift-&gt;Rhona First Shift]]
+
+[if RhonaWorkShift&gt;0]
+&gt;[[Change clothes in the back and go outside-&gt;Return to field]]</tw-passagedata>
+<tw-passagedata pid="330" name="Rhona First Shift" tags="" position="0,0" size="100,100">RhonaWorkShift: 1
+--
+The last customers finally left, and the tavern grew quiet. You returned the empty dishes and straightened the chairs while Rhona checked the counter.
+
+“You did better than you think,” she said. “A few things were carried to the wrong tables, but nobody went hungry. That's a successful first day in my book.”
+
+You admitted that the work was more tiring than expected. Rhona laughed softly.
+
+“People see the tavern when it's full and lively. They don't see the work that keeps it running. My uncle used to say that a good tavern is built on small things done properly. I suppose I finally understand what he meant.”
+
+She placed your payment on the counter. “Thank you for staying until closing. I know you have your own duties as an adventurer, so I won't ask you to come every day. But whenever you have time, I'd be glad to see you here.”
+
+Her expression softened for a moment. “And… I'm glad it's you helping me.”
+
+You said your goodbyes and went to change before leaving the tavern.
+
+&gt;[[Change clothes and go outside-&gt;Return to field]]</tw-passagedata><tw-passagedata pid="178" name="Ask Aidan for a discount" tags="" position="2250,1975" size="100,100">McRearExps: McRearExps + 1
 McBhvSub: McBhvSub + 1
 McArousal: McArousal + 30
 McArousal(McArousal&gt;100): 100
@@ -6366,6 +6388,7 @@ LctBlacksmith: false
 LctMysteriousLittleHut: false
 LctLiamHouse: false
 LctRhonaHouse: false
+RhonaWorkShift: 0
 LctMayorsOffice: false
 LctLodging: false
 YthomeX:4
