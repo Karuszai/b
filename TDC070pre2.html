@@ -601,9 +601,9 @@ You have obtained {_GetGems} gems.
 
 [if !_McBattleExhausted&amp;&amp;McCorStage&lt;2; align center]
 Interact with opponent (Corruption Stage 2 or higher)
-[if !_McBattleExhausted&amp;&amp;McCorStage&gt;=2&amp;&amp;McArousal&gt;=60]
+[if !_McBattleExhausted&amp;&amp;McCorStage&gt;=2&amp;&amp;McArousal&gt;=40]
 &gt;[[Interact with opponent-&gt;Interact with enemy]]
-[if !_McBattleExhausted&amp;&amp;McCorStage&gt;=2&amp;&amp;McArousal&lt;60; align center]
+[if !_McBattleExhausted&amp;&amp;McCorStage&gt;=2&amp;&amp;McArousal&lt;40; align center]
 Interact with opponent (Low Arousal)
 
 [if MnsName===&quot;Robber&quot;]
@@ -1579,6 +1579,7 @@ Seduce (Corruption Stage 3 or higher)
 DEBUGMODE\
 [[Give supplies]] [[Seduce them.-&gt;Seduce]] [[Attack them.-&gt;Fight the enemy]] [[Return to field]]</tw-passagedata><tw-passagedata pid="38" name="Seduce" tags="" position="2700,1075" size="100,100">McSedBase: McCorStage * 5 + (McArousal - McArousal%5)/5
 McSedBase(ArmrSkill1===&quot;Allure of Pink&quot;||ArmrSkill2===&quot;Allure of Pink&quot;): McSedBase + 10
+McSedBase(MdtPerpetualEstrus3): McSedBase + 10
 _SedButtRate: McSedBase + McButt * 5
 _SedButtRate(_SedButtRate&gt;100): 100
 _SedTitsRate: McSedBase + McBreasts * 5
@@ -8176,7 +8177,7 @@ McArousalMin(passage.fromText===&quot;Learn Perpetual Estrus 1&quot;): 30
 MdtPerpetualEstrus2(passage.fromText===&quot;Learn Perpetual Estrus 2&quot;): true
 McArousalMin(passage.fromText===&quot;Learn Perpetual Estrus 2&quot;): 40
 MdtPerpetualEstrus3(passage.fromText===&quot;Learn Perpetual Estrus 3&quot;): true
-McArousalMin(passage.fromText===&quot;Learn Perpetual Estrus 3&quot;): 50
+McArousalMin(passage.fromText===&quot;Learn Perpetual Estrus 3&quot;): 40
 McArousal(McArousal&lt;McArousalMin): McArousalMin
 --
 [cont]
@@ -8233,7 +8234,7 @@ Perpetual Estrus 2
 
 [cont]
 Perpetual Estrus 3
-&lt;br&gt;&amp;ensp;The arousal level will no longer drop below 50
+&lt;br&gt;&amp;ensp;The arousal level will no longer drop below 40. Seduction success rates increase by 10%.
 &lt;br&gt;&amp;ensp;500 gems, Corruption Stage 5, need Perpetual Estrus 2
 [if !MdtPerpetualEstrus3&amp;&amp;McGems&gt;=500&amp;&amp;McCorStage&gt;=5&amp;&amp;MdtPerpetualEstrus2 ;append]
 &lt;br&gt;&amp;ensp;[[Learn Perpetual Estrus 3-&gt;Meditate]]
