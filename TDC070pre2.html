@@ -2690,6 +2690,8 @@ Rhona
 &gt;[[Stay with Rhona after closing-&gt;Rhona After Hours]]
 [if McWaitress&amp;&amp;RhonaWorkShift&gt;=8&amp;&amp;RhonaAfterHours&amp;&amp;!RhonaAfterHours2]
 &gt;[[Spend another quiet evening with Rhona-&gt;Rhona After Hours 2]]
+[if McWaitress&amp;&amp;RhonaWorkShift&gt;=10&amp;&amp;RhonaAfterHours2&amp;&amp;!RhonaAfterHours3]
+&gt;[[Spend a night at Rhona\&#39;s home-&gt;Rhona After Hours 3]]
 
 [cont]
 ***
@@ -6442,6 +6444,7 @@ RhonaWorkShift: 0
 RhonaTalkProgress: 0
 RhonaAfterHours: false
 RhonaAfterHours2: false
+RhonaAfterHours3: false
 LctMayorsOffice: false
 LctLodging: false
 YthomeX:4
@@ -9268,4 +9271,47 @@ The two of you stayed together until the lamps had nearly burned out. There was 
 
 Rhona walked you to the door. “Come back when you can. Not because I need an extra pair of hands,” she said, smiling, “but because I'd like to see you.”
 
-&gt;[[Back-&gt;Rhona]]</tw-passagedata></tw-storydata></html>
+&gt;[[Back-&gt;Rhona]]</tw-passagedata><tw-passagedata pid="333" name="Rhona After Hours 3" tags="" position="0,0" size="100,100">RhonaAfterHours3: true
+--
+{embed image: &#39;images/Rhona0.webp&#39;, alt: &#39;Rhona at home in the evening&#39;}
+
+The walk to Rhona's home was quieter than the streets outside the tavern. She had invited you after closing, but neither of you seemed in a hurry to reach the door.
+
+“I wanted tonight to be different,” she said. “Not another evening where you help me finish work and then disappear back into the dungeon. I wanted to spend time with you without watching the clock.”
+
+Inside, Rhona made tea and set it aside almost untouched. You spoke about the town, the people depending on the tavern, and the uncertainty waiting beyond its walls. For once, the conversation drifted away from duties and worries.
+
+[if McCorStage&lt;=1]
+Rhona brushed a little dust from your sleeve. “I still remember the knight who first walked into my tavern. I don't think either of us expected we'd become this close.”
+[if McCorStage===2]
+Her eyes met yours. “So much about your life has changed since we met. I'm glad you still let me get to know the person beneath all of it.”
+[if McCorStage&gt;=3]
+Rhona took your hand, her expression gentle. “The dungeon has changed your life in ways I can't fully understand. But I don't want those changes to make you feel you have to hide from me.”
+
+[if McBreasts&gt;=2]
+She noticed your brief self-consciousness and gave your hand a reassuring squeeze. “You never have to apologise for how you look. I care about you, not some version of you that existed before all this.”
+[if McRod]
+You admitted that there were still parts of your changed body you found difficult to accept.
+[if !McRod]
+You admitted that some days it was difficult to recognise how much your body had changed.
+Rhona listened, then rested her forehead gently against yours. “You can tell me when it feels difficult. I won't judge you.”
+
+[if McBhvDom&gt;McBhvSub]
+You drew her closer, giving her time to decide whether she wanted the same. Rhona answered by wrapping her arms around you.
+“I'm glad you still know what you want,” she whispered. “Just remember that you can let me take care of you, too.”
+You kissed her, slowly and without rushing. When you finally pulled apart, she smiled and led you toward the bedroom.
+[if McBhvSub&gt;=McBhvDom]
+Rhona moved closer and gently cupped your cheek.
+“You spend so much of your time trying to manage everything,” she whispered. “Tonight, let me look after you.”
+You leaned into her touch and kissed her. She held you close, allowing the moment to unfold at a pace that felt comfortable for you both, before leading you toward the bedroom.
+
+The door closed behind you. The rest of the night belonged to the two of you, away from the demands of the tavern and the dangers outside.
+
+In the morning, Rhona was still beside you. She stirred, smiled sleepily, and rested her head against your shoulder.
+
+“I don't know what tomorrow will bring,” she said. “But I'd like there to be more mornings like this.”
+
+You stayed together a little longer before getting dressed and returning to your separate duties.
+
+&gt;[[Back-&gt;Rhona]]</tw-passagedata>
+</tw-storydata></html>
