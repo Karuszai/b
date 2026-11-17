@@ -2686,6 +2686,8 @@ Rhona
 &gt;[[Rhona is calling you.]]
 [if McWaitress&amp;&amp;_RhonaTimePassed]
 &gt;[[Help out at the tavern-&gt;WaitressMemoryTask]]
+[if McWaitress&amp;&amp;RhonaWorkShift&gt;=6&amp;&amp;RhonaTalkProgress&gt;=3&amp;&amp;!RhonaAfterHours]
+&gt;[[Stay with Rhona after closing-&gt;Rhona After Hours]]
 
 [cont]
 ***
@@ -6436,6 +6438,7 @@ LctLiamHouse: false
 LctRhonaHouse: false
 RhonaWorkShift: 0
 RhonaTalkProgress: 0
+RhonaAfterHours: false
 LctMayorsOffice: false
 LctLodging: false
 YthomeX:4
@@ -9172,4 +9175,54 @@ The transport records show that prisoners and supplies move between the hideout 
 You have disrupted one transfer and rescued several captives, but the people behind the operation have not been exposed. The next step will be to learn who the Warden is and why Depth 13 matters.
 
 &gt;[[Return to the far bank-&gt;Return to field]]</tw-passagedata>
-</tw-storydata></html>
+<tw-passagedata pid="331" name="Rhona After Hours" tags="" position="0,0" size="100,100">RhonaAfterHours: true
+--
+{embed image: &#39;images/Rhona0.webp&#39;, alt: &#39;Rhona after closing&#39;}
+
+The tavern was almost empty when you arrived. Rhona was putting the last chairs in place, and the warm light of the lamps made the familiar room feel quieter than usual.
+
+“You came at just the right time,” she said. “I was about to lock the door. Would you mind keeping me company for a little while? I don't feel like going straight home tonight.”
+
+You stayed to help her finish tidying up. Once the last lamp was turned low, Rhona sat across from you with two cups of something warm.
+
+“I used to think that being responsible for this place meant I had to manage everything on my own,” she said. “Lately, I've started looking forward to having someone to talk to at the end of the day.”
+
+[if McCorStage&lt;=1]
+She glanced at your familiar, sturdy build. “You still carry yourself like a trained knight. I imagine it is difficult to set that part of your life aside, even for an evening.”
+[if McCorStage===2]
+Her eyes briefly followed your slimmer silhouette. “Your appearance has changed quite a bit since we first met. I hope the changes haven't made you feel like a stranger to yourself.”
+[if McCorStage&gt;=3]
+Her gaze softened as she took in how much your body had changed. “I know you've been through a great deal of change. You don't have to explain any of it unless you want to. I still see the person who first walked into my tavern.”
+
+[if McBreasts&gt;=2]
+You noticed her glance briefly toward your chest before she returned her attention to your face. “I suppose neither of us is quite the same as when we first met,” she added with a small, understanding smile.
+
+[if McRod]
+You shifted in your seat, aware that your altered body was not something you could always forget.
+[if McRod&amp;&amp;McRodSize&lt;8]
+Rhona noticed your brief discomfort but didn't press you about it. “You don't need to feel self-conscious around me,” she said gently.
+[if McRod&amp;&amp;McRodSize&gt;=8]
+Rhona's eyes lingered for a moment, then she deliberately returned to the conversation. “I won't pretend I haven't noticed how much you've changed. But that isn't all I see when I look at you.”
+[if !McRod]
+You were grateful that, whatever else had changed about your body, this part of your life was not something you had to worry about. Rhona made no assumptions and simply continued talking.
+
+[if McBhvDom&gt;McBhvSub]
+You reached across the table and took her hand. Rhona looked surprised, but she did not pull away. “You always seem so certain of yourself,” she murmured.
+“You don't have to pretend to be strong every moment,” you replied. “You can let someone else take the lead once in a while.”
+She considered that, then gently squeezed your hand. “Perhaps I can. At least with you.”
+You leaned closer, giving her time to change her mind. She met you halfway, and the two of you shared a quiet, unhurried kiss.
+
+[if McBhvSub&gt;=McBhvDom]
+Rhona reached across the table and offered you her hand. You accepted, letting her decide how close to sit.
+“You don't have to find the right words,” she said. “I'm happy just having you here.”
+You admitted that you sometimes found it easier when someone else took the initiative. Rhona smiled, warm but never teasing.
+“Then let me do that tonight.”
+She leaned closer, pausing long enough for you to meet her eyes. When you did, she kissed you gently.
+
+For a while, neither of you felt the need to speak. The quiet no longer seemed awkward.
+
+“Thank you for staying,” Rhona said at last. “I think I'd like to do this again sometime.”
+
+You said your goodbyes and left her to lock up the tavern.
+
+&gt;[[Back-&gt;Rhona]]</tw-passagedata></tw-storydata></html>
