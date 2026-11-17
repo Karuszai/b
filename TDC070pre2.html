@@ -2699,18 +2699,63 @@ DEBUGMODE [[Rhona is calling you.]] [[WaitressMemoryTask]]</tw-passagedata><tw-p
 {embed image: &#39;images/Rhona0.webp&#39;, alt: &#39;img Rhona0&#39;}
 
 [if MsnRhonaProg===0&amp;&amp;MsnRhonaComp===0]
-Rhona: “Nice to meet you, I&#39;m Rhona. I run this tavern. Who are you?”\
-You: “I&#39;m {McName}. I&#39;m a knight sent from the royal capital to investigate the dungeon.”\
-Rhona: “We&#39;re both in a tough spot. Owen said that the entire town has been swallowed up by the dungeon, right? What on earth is going to happen now?”\
+Rhona: “Nice to meet you, I'm Rhona. I run this tavern. Who are you?”\
+You: “I'm {McName}. I'm a knight sent from the royal capital to investigate the dungeon.”\
+Rhona: “We're both in a tough spot. Owen said that the entire town has been swallowed up by the dungeon, right? What on earth is going to happen now?”\
 You: “I talked to Owen, and his plan is to secure a means for the townspeople to survive and find a way to escape the dungeon.”\
-Rhona: “All I can do right now is serve food at this tavern. If you find any food, bring it here. I’ll buy it from you.”\
+Rhona: “All I can do right now is serve food at this tavern. If you find any food, bring it here. I'll buy it from you.”\
 [[You nodded.-&gt;Rhona]]
 
 [if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;!McWaitress]
 {embed passage: &#39;Rhona talk 1&#39;}
 
-[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress]
-*Currently in preparation*
+[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress&amp;&amp;RhonaTalkProgress===0]
+RhonaTalkProgress: 1
+Rhona: “How are you feeling after your first shift? Your arms must be tired.”
+You: “A little. I didn't realize how much work goes into keeping a tavern running.”
+Rhona: “Most people don't. They notice the food and the warm room, not the person making sure everything is ready.”
+You: “You handle all of it yourself?”
+Rhona: “Most days, yes. I have help when I can get it, but I don't like asking too much of people.”
+You: “You don't have to worry about that with me. I'll help when I can.”
+Rhona smiled. “That's kind of you. Just don't forget to look after yourself, too.”
+&gt;[[Back-&gt;Rhona]]
+
+[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress&amp;&amp;RhonaTalkProgress===1&amp;&amp;RhonaWorkShift&lt;3]
+Rhona: “It's good to see you again. Don't tell me you came all this way just to check whether I'm behaving myself.”
+You: “Maybe I did. Someone has to make sure the tavern doesn't fall apart.”
+Rhona laughed. “Then you'll have to keep an eye on me. Though I think we're managing rather well so far.”
+&gt;[[Back-&gt;Rhona]]
+
+[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress&amp;&amp;RhonaTalkProgress===1&amp;&amp;RhonaWorkShift&gt;=3]
+RhonaTalkProgress: 2
+Rhona: “There's something I've been meaning to tell you. This tavern belonged to my uncle before it became mine.”
+You: “You mentioned him during my first shift.”
+Rhona: “He taught me almost everything I know. When the town began to change, he insisted that this place should stay open for as long as people needed somewhere to gather.”
+You: “It sounds like he cared about this place as much as you do.”
+Rhona: “He did. I suppose I'm trying to live up to what he left me. Some days I'm not sure I'm doing a very good job.”
+You: “From what I've seen, you're doing better than you think.”
+She looked down at the counter, hiding a small smile. “Thank you. I needed to hear that.”
+&gt;[[Back-&gt;Rhona]]
+
+[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress&amp;&amp;RhonaTalkProgress===2&amp;&amp;RhonaWorkShift&lt;5]
+Rhona: “I was thinking about what you said. It's easier to keep going when someone believes in you.”
+You: “You don't have to carry everything alone, Rhona.”
+Rhona: “I know. I'm still getting used to that idea.”
+&gt;[[Back-&gt;Rhona]]
+
+[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress&amp;&amp;RhonaTalkProgress===2&amp;&amp;RhonaWorkShift&gt;=5]
+RhonaTalkProgress: 3
+Rhona: “I used to think that asking for help meant I wasn't doing enough. My uncle would probably laugh if he heard me say that now.”
+You: “Maybe he would just be glad you found someone you can rely on.”
+Rhona was quiet for a moment. “I think… I'm beginning to feel that way, too. It's strange how quickly a familiar face can make a difficult day feel lighter.”
+You: “Then I'll try to make sure you see mine from time to time.”
+Rhona smiled warmly. “I'd like that.”
+&gt;[[Back-&gt;Rhona]]
+
+[if MsnRhonaProg===1&amp;&amp;MsnRhonaComp===1&amp;&amp;McWaitress&amp;&amp;RhonaTalkProgress&gt;=3]
+Rhona: “It's nice having you around. The tavern feels a little less overwhelming when I know I can ask you for help.”
+You: “Just don't start giving me all the difficult jobs.”
+Rhona: “No promises.”
 &gt;[[Back-&gt;Rhona]]</tw-passagedata><tw-passagedata pid="84" name="Sell food" tags="" position="1175,1850" size="100,100">LggVac: LggCap - LggPos
 --
 [cont]
@@ -5497,6 +5542,7 @@ _GetGems(_WTaskResult3): _GetGems+ 8
 _GetGems(_WTaskResult4): _GetGems+ 8
 _GetGems(_WTaskResult5): _GetGems+ 8
 _GetGems(_WTaskResult6): _GetGems+ 8
+_GetGems: Math.round(_GetGems * Math.pow(1.2, RhonaWorkShift - 1))
 McGems: McGems + _GetGems
 _WTaskPoint: 0
 _WTaskPoint(_WTaskResult1): _WTaskPoint + 1
@@ -6389,6 +6435,7 @@ LctMysteriousLittleHut: false
 LctLiamHouse: false
 LctRhonaHouse: false
 RhonaWorkShift: 0
+RhonaTalkProgress: 0
 LctMayorsOffice: false
 LctLodging: false
 YthomeX:4
